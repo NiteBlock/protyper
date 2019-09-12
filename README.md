@@ -14,3 +14,9 @@ Now make a file called variables.env and copy sample-variables.env and change it
 Start the server using the start or dev command:
 Start the server: `npm start`
 Start the server in developer mode (using nodemon): `npm run dev`
+
+
+## What gets tracked and how to see it
+> this is WIP
+
+very wip
