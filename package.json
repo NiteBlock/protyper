@@ -1,0 +1,27 @@
+{
+  "name": "protyper",
+  "version": "1.0.0",
+  "description": "A typeing game like no other!",
+  "main": "server.js",
+  "scripts": {
+    "dev": "nodemon start",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Niteblock/protyper.git"
+  },
+  "author": "Nite",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Niteblock/protyper/issues"
+  },
+  "homepage": "https://github.com/Niteblock/protyper#readme",
+  "dependencies": {
+    "dotenv": "^8.1.0",
+    "ejs": "^2.7.1",
+    "express": "^4.17.1",
+    "mongoose": "^5.7.0",
+    "nodemon": "^1.19.2"
+  }
+}
