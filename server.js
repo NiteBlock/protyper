@@ -21,9 +21,6 @@ app.get("/", (req, res) => {
     res.render("./pages/home.ejs", {ip : req.ip, test : "This is some testing", user:api.users.me(req,res)})
 })
 
-app.get("/test", (req,res) => {
-    console.log("got")
-    res.send("Online!")
-})
+
 
 app.listen(process.env.PORT, () => {console.log(`Server staring up on ${process.env.PORT}`)})
