@@ -11,9 +11,17 @@ router.post("/api/users/new", (req, res) => {
 })
 
 router.get("/api/passwords/encode", (req, res) => {
-    if(req.query.content && req.query.password){
-        res.json(api.passwords.encrypt(req.query.content, req.query.password))
+    if(req.query.value && req.query.key){
+        res.json(api.passwords.encrypt(req.query.value, req.query.key))
     }
 })
+
+router.get("/api/passwords/encode", (req, res) => {
+    if(req.query.value && req.query.key){
+        res.json(api.passwords.encrypt(req.query.value, req.query.key))
+    }
+})
+
+router.use()
 
 module.exports = router

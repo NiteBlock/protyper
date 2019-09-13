@@ -42,3 +42,9 @@ nav ul li a {
 nav ul li a:hover {
     background-color: #02f7ff;
 }
+
+footer {
+    background-color: #010101;
+    padding: 100px;
+    bottom: 10px;
+}
