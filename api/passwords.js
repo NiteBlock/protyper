@@ -18,7 +18,7 @@ module.exports.decrypt = function(content, passcode) {
         decrypt1.push(calAscii)
     }
     for(var i = 0 ; i < decrypt1.length ; i++) {
-        var ch = String.fromCharCode(result[i]); 
+        var ch = String.fromCharCode(decrypt1[i]); 
         decrypted += ch
     }
     return decrypted

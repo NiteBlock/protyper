@@ -11,7 +11,8 @@ const config = {
         type:Date, default: Date.now()
     },
     ips: Array,
-    stats : Object
+    stats : Object,
+    achivements : Array
 }
 
 const user = new Schema(config)

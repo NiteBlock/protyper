@@ -4,17 +4,13 @@ const { createLogger, format, transports } = require("winston");
 var files = fs.readdirSync(path.join(process.cwd(), '/logs'));
 const api = {users : require("../api/users"), passwords : require("../api/passwords")}
 
-const getId = () => {
-    var result = '';
-    var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-    for ( var i = 0; i < 5; i++ ) {
-       result += characters.charAt(Math.floor(Math.random() * characters.length));
-    }
-    if (!files.includes(result)){
+const getId = (r) => {
+    if(!r){var result = 00001;} else{var result = r}
+    if (!files.includes(result + ".log")){
         return result
     }
     else{
-        return getId()
+        return getId(result+1)
     }
 }
 
@@ -60,7 +56,26 @@ router.use((req, res, next) => {
     let u = c ? `logged in with ${c.name} and the email ${c.email}` : "not logged in"
 
     logger.log("info", `Request made by ${req.ip} to get to ${req.path} with the ${req.method} method, ${u}.`)
+    next()
 })
+
+//add error pages
+
+router.use(function(err, req, res, next) {
+    // Do logging and user-friendly error message display
+    console.error(err);
+    res.status(500).send('internal server error');
+  })
+
+router.use((err, req, res, next) => {
+    console.log("hi")
+    logger.log(err, req, res, next)
+    if(err){
+    console.log(err)
+    res.render('./pages/error.ejs', {title: '404: Page Not Found'});
+    }
+    next()
+});
 
 //thought i might include this here, blocking too many request
 
